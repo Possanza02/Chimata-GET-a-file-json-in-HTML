@@ -20,7 +20,7 @@
 
           risultato_get.forEach(function (oggetto) {
             console.log("I am here");
-            document.getElementById("test").innerHTML += '<li>' + oggetto.name + ' possanza è top ' + oggetto.id + '</li>';
+            document.getElementById("test").innerHTML += '<li>' + oggetto.name + oggetto.id + '</li>';
           });
         },
         error: function (error) {
