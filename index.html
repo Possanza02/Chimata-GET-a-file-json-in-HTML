@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Ajax Api call by jQuery</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function () {
+
+      $.ajax({
+        url: "https://jsonplaceholder.typicode.com/users",
+        type: "GET",
+        success: function (risultato_get) {
+          
+
+          console.log('Questa è la mia lista di utenti: ',risultato_get);
+          data = JSON.stringify(risultato_get);
+          console.log('cosa fa data:', data);
+          // $("#newData").html(risultato_get);
+
+          risultato_get.forEach(function (oggetto) {
+            console.log("I am here");
+            document.getElementById("test").innerHTML += '<li>' + oggetto.name + ' possanza è top ' + oggetto.id + '</li>';
+          });
+        },
+        error: function (error) {
+          console.log(error);
+        }
+
+      });
+    });
+
+
+
+  </script>
+</head>
+
+<body>
+
+  <h1>Mio sito</h1>
+
+  <ul>
+    <li>primo elemento</li>
+    <li>secondo elemento</li>
+    <li>terzo elemento</li>
+  </ul>
+
+  <button> Get </button>
+  <span id="test">
+
+</body>
+
+</html>
